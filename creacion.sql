@@ -9,6 +9,12 @@ create Table usuarios(
 
 );
 
+create Table tareas(
+                         id INT AUTO_INCREMENT,
+                         nombre VARCHAR(30) NOT NULL,
+                         CONSTRAINT registro_pk PRIMARY KEY (id)
+);
+
 create user usuarios@localhost
     identified by 'usuarios';
 

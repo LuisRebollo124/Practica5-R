@@ -2,9 +2,10 @@
 include_once "conexion.php";
 
 
-if (isset($_POST["usu"]) && ($_POST["pass"])){
+if (isset($_POST["usu"]) && ($_POST["pass"] || $tarea=$_POST["tarea"])){
     $usu=$_POST["usu"];
     $pass=$_POST["pass"];
+    $tarea=$_POST["tarea"];
     $sql = "SELECT COUNT(*), nombre, contraseña FROM usuarios WHERE nombre='$usu';";
 }
 else{
@@ -24,13 +25,21 @@ else{
 <body>
 <h1>Lista de tareas</h1>
 <main class="container">
-    <form action="anadir.php" method="post">
+    <form action="indexpers.php" method="post">
         <div>
             <input type="text" placeholder="Escriba una nueva tarea" id="tarea" name="tarea">
         </div>
         <button id="boton">Añadir</button>
     </form>
     <p>&nbsp;</p>
+    <section>
+        <ul id="lista">
+            <?php
+            $tarea=$_POST["tarea"];
+            $sql = "INSERT INTO usuarios(id_tarea,nombre) VALUES (null,'$tarea') from tareas";
+            ?>
+        </ul>
+    </section>
 </main>
 </body>
 </html>
