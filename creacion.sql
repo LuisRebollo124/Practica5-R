@@ -14,5 +14,7 @@ create user usuarios@localhost
 
 select nombre,contraseña from usuarios where nombre='Ana' && contraseña='123456';
 
+SELECT COUNT(*) as num, nombre, contraseña FROM usuarios WHERE nombre='Ana';
+
 
 GRANT SELECT,INSERT,UPDATE,DELETE ON usuarios.* TO usuarios@localhost;

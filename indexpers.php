@@ -5,7 +5,7 @@ include_once "conexion.php";
 if (isset($_POST["usu"]) && ($_POST["pass"])){
     $usu=$_POST["usu"];
     $pass=$_POST["pass"];
-    $sql = "SELECT COUNT(*) as num, nombre, contraseña FROM usuarios WHERE nombre='$usu';";
+    $sql = "SELECT COUNT(*), nombre, contraseña FROM usuarios WHERE nombre='$usu';";
 }
 else{
     header("Location:index.php");
@@ -22,7 +22,15 @@ else{
     <title>Document</title>
 </head>
 <body>
-    <header><h1>Bienvenido, <?=$usu?></h1></header>
-    <a href="index.php">Cerrar sesion</a>
+<h1>Lista de tareas</h1>
+<main class="container">
+    <form action="anadir.php" method="post">
+        <div>
+            <input type="text" placeholder="Escriba una nueva tarea" id="tarea" name="tarea">
+        </div>
+        <button id="boton">Añadir</button>
+    </form>
+    <p>&nbsp;</p>
+</main>
 </body>
 </html>
