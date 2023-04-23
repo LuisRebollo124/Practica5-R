@@ -4,7 +4,7 @@ $driver=new mysqli_driver();
 $driver->report_mode=MYSLI_REPORT_ERROR | MYSQLI_REPORT_STRICT;
 
 function getConexion(){
-    $con= new mysqli("localhost","Usuarios","registros", "Usuarios");
+    $con= new mysqli("localhost","usuarios","usuarios", "usuarios");
     return $con;
 }
 function mensajeError($codigo){
@@ -14,6 +14,8 @@ function mensajeError($codigo){
         return "Usuario o contraseña incorrecta";
     elseif ($codigo==1044)
         return "Base de datos incorrecta";
+    elseif ($codigo==1062)
+        return "Este usuario ya existe";
     else
         return "Error desconocido";
 }

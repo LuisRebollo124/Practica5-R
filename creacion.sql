@@ -1,6 +1,6 @@
-create database Usuarios;
-use Usuarios;
-create Table Usuarios(
+create database usuarios;
+use usuarios;
+create Table usuarios(
                          id INT AUTO_INCREMENT,
                          nombre VARCHAR(30) NOT NULL,
                          contraseña varchar(30) NOT NULL ,
@@ -9,9 +9,10 @@ create Table Usuarios(
 
 );
 
-create user Usuarios@localhost
-    identified by 'registro';
+create user usuarios@localhost
+    identified by 'usuarios';
 
-select nombre,contraseña from Usuarios;
+select nombre,contraseña from usuarios;
 
-GRANT SELECT,INSERT,UPDATE,DELETE ON Usuarios.* TO Usuarios@localhost;
+
+GRANT SELECT,INSERT,UPDATE,DELETE ON usuarios.* TO usuarios@localhost;
