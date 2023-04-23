@@ -10,7 +10,7 @@
 <body>
 <h1>Acceso de usuarios</h1>
 <main class="container">
-    <form action="grabar.php" method="post">
+    <form action="indexpers.php" method="post">
         <div>
             <input type="text" placeholder="Escriba su nombre de usuario" id="usu" name="usu">
         </div>
