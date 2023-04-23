@@ -12,7 +12,7 @@ create Table usuarios(
 create user usuarios@localhost
     identified by 'usuarios';
 
-select nombre,contraseña from usuarios;
+select nombre,contraseña from usuarios where nombre='Ana' && contraseña='123456';
 
 
 GRANT SELECT,INSERT,UPDATE,DELETE ON usuarios.* TO usuarios@localhost;

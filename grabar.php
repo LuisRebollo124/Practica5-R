@@ -6,7 +6,7 @@ if(isset($_POST["usu"]) && ($_POST["pass"])){
     $pass=$_POST["pass"];
     try{
         $con=getConexion();
-        $sql="select nombre,contraseña VALUES(?,?) from usuarios";
+        $sql="select nombre,contraseña from usuarios where nombre=? && contraseña=?;";
         $st=$con->prepare($sql);
         $st->bind_param("ss",$usu,$pass);
         $st->execute();
