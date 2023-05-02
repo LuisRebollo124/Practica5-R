@@ -1,22 +1,24 @@
 <?php
-error_reporting(E_ERROR);
+//error_reporting(E_ERROR);
 $driver=new mysqli_driver();
-$driver->report_mode=MYSLI_REPORT_ERROR | MYSQLI_REPORT_STRICT;
-
+$driver->report_mode=MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT;
 function getConexion(){
-    $con= new mysqli("localhost","usuarios","usuarios", "usuarios");
-    return $con;
+    return new mysqli("localhost","tareas",
+        "sgsdf76adfzs%","tareas");
 }
-function mensajeError($codigo){
-    if ($codigo==2002)
-        return "Ha fallado la conexión a la base de datos";
-    elseif ($codigo==1045)
-        return "Usuario o contraseña incorrecta";
-    elseif ($codigo==1044)
-        return "Base de datos incorrecta";
-    elseif ($codigo==1062)
-        return "Este usuario ya existe";
-    else
+
+function getMensajeError($error){
+    if ($error==2002){
+        return "No se ha podido conectar al servidor";
+    }
+    elseif ($error==1045){
+        return "No se puede acceder a la base de datos: usuario o contraseña incorrectos";
+    }
+    elseif($error==1044){
+        return "Base de datos no encontrada";
+    }
+    else{
         return "Error desconocido";
+    }
 }
 ?>
