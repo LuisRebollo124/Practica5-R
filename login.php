@@ -34,4 +34,4 @@ if(isset($_GET["usuario"]) && isset($_GET["password"])){
 else{
     header("Location:index.php");
 }
-?>
+?> 
